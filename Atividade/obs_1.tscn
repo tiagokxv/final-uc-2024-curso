@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhb48u2vyegav"]
+
+[ext_resource type="Texture2D" uid="uid://dvt000ehoj2eq" path="res://Mudanças 2/heinz.png" id="1_mbofg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wd630"]
+
+[node name="Obs1" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.159999, 0.0799992)
+texture = ExtResource("1_mbofg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wd630")

@@ -1,0 +1,419 @@
+[gd_scene load_steps=32 format=3 uid="uid://b6pvldvxqhah2"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_uikyf"]
+[ext_resource type="PackedScene" uid="uid://woia2loyyxwe" path="res://Coin.tscn" id="2_q317l"]
+[ext_resource type="PackedScene" uid="uid://ltcudyjxydpw" path="res://ConfettiParticles.tscn" id="3_fktbk"]
+[ext_resource type="FontFile" uid="uid://1btw86deu6mj" path="res://Mudanças 2/OpenType (.otf)/Unutterable-Regular.otf" id="4_ggtxo"]
+[ext_resource type="Texture2D" uid="uid://cla61ymutry7s" path="res://Mudanças 2/caveira.png" id="5_cldu3"]
+[ext_resource type="Script" path="res://Player.gd" id="6_c6nfl"]
+[ext_resource type="Texture2D" uid="uid://48umy0325pnu" path="res://Mudanças 2/Pinguim Hurt (16 x 16).png" id="7_fj0wc"]
+[ext_resource type="Texture2D" uid="uid://b3kc2lloduijy" path="res://Mudanças 2/Pinguim Idle (16 x 16).png" id="8_8a3f8"]
+[ext_resource type="Texture2D" uid="uid://dv1oliggjltcn" path="res://Mudanças 2/Pinguim Waddling (16 x 16).png" id="9_ud0o1"]
+[ext_resource type="Script" path="res://GameOver.gd" id="10_podpp"]
+[ext_resource type="Texture2D" uid="uid://c6ldkky84gv8j" path="res://Mudanças 2/ratatão triste pela pizza.png" id="11_6eb37"]
+[ext_resource type="AudioStream" uid="uid://d2ryho0xync66" path="res://Mudanças 2/Soundtrack Main2.wav" id="12_d18dw"]
+[ext_resource type="PackedScene" uid="uid://cm4xovkfp8ya7" path="res://obs_3.tscn" id="13_ulkcw"]
+[ext_resource type="PackedScene" uid="uid://bvngqxl7uk0jv" path="res://obs_4.tscn" id="14_otkj3"]
+[ext_resource type="PackedScene" uid="uid://cqwmtbnc37km3" path="res://obs_5.tscn" id="15_4did0"]
+
+[sub_resource type="Animation" id="Animation_whoi3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CoinsLabel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lgt61"]
+resource_name = "ScoreIncreased"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CoinsLabel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ixifg"]
+_data = {
+"RESET": SubResource("Animation_whoi3"),
+"ScoreIncreased": SubResource("Animation_lgt61")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yim51"]
+atlas = ExtResource("8_8a3f8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwv2s"]
+atlas = ExtResource("8_8a3f8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm33w"]
+atlas = ExtResource("8_8a3f8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apoei"]
+atlas = ExtResource("8_8a3f8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uhoi"]
+atlas = ExtResource("8_8a3f8")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q823k"]
+atlas = ExtResource("9_ud0o1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysmem"]
+atlas = ExtResource("9_ud0o1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3wbk"]
+atlas = ExtResource("9_ud0o1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucgpo"]
+atlas = ExtResource("9_ud0o1")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8lip"]
+atlas = ExtResource("9_ud0o1")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kanfo"]
+atlas = ExtResource("9_ud0o1")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3hjia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_fj0wc")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yim51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwv2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm33w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apoei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uhoi")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q823k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysmem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3wbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucgpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8lip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kanfo")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62tl5"]
+size = Vector2(5.88581, 13.4066)
+
+[node name="Main2" type="Node"]
+script = ExtResource("1_uikyf")
+coin = ExtResource("2_q317l")
+confetti = ExtResource("3_fktbk")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13905, 0.758176, 0.512938, 1)
+
+[node name="CoinsLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -132.0
+offset_top = 20.0
+offset_right = 133.0
+offset_bottom = 88.0
+grow_horizontal = 2
+pivot_offset = Vector2(132, 34)
+theme_override_fonts/font = ExtResource("4_ggtxo")
+theme_override_font_sizes/font_size = 60
+text = "Swords: 0"
+
+[node name="LevelLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.0
+offset_top = 93.0
+offset_right = 144.0
+offset_bottom = 161.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_ggtxo")
+theme_override_font_sizes/font_size = 60
+text = "Level: 1"
+
+[node name="UpButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -175.0
+offset_right = 38.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DownButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -86.0
+offset_right = 38.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RightButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = -86.0
+offset_right = 128.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LeftButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -127.0
+offset_top = -86.0
+offset_right = -52.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HealthBar" type="TextureProgressBar" parent="UI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 10000.0
+value = 10000.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("5_cldu3")
+
+[node name="CoinsLabelAnimationPlayer" type="AnimationPlayer" parent="UI"]
+libraries = {
+"": SubResource("AnimationLibrary_ixifg")
+}
+speed_scale = 3.5
+
+[node name="Player" type="Area2D" parent="." groups=["Player"]]
+position = Vector2(270, 480)
+scale = Vector2(3.05821, 3.05821)
+script = ExtResource("6_c6nfl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3hjia")
+animation = &"Walk"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2(1.44834, 0.961065)
+shape = SubResource("RectangleShape2D_62tl5")
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_podpp")
+
+[node name="Background" type="ColorRect" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.882353)
+
+[node name="GameOverTitle" type="Label" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -309.0
+offset_top = 57.0
+offset_right = 680.0
+offset_bottom = 127.0
+grow_horizontal = 2
+scale = Vector2(0.500804, 0.917928)
+pivot_offset = Vector2(132, 34)
+theme_override_fonts/font = ExtResource("4_ggtxo")
+theme_override_font_sizes/font_size = 60
+text = "A caveira rachou e você perdeu!"
+
+[node name="GameOverTitle2" type="Label" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -294.0
+offset_top = 500.0
+offset_right = 1058.0
+offset_bottom = 570.0
+grow_horizontal = 2
+scale = Vector2(0.300804, 0.517932)
+pivot_offset = Vector2(132, 34)
+theme_override_fonts/font = ExtResource("4_ggtxo")
+theme_override_font_sizes/font_size = 60
+text = "\"Ratatouille triste pq a caveira rachou\""
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = 217.0
+offset_right = 189.0
+offset_bottom = 379.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ggtxo")
+theme_override_font_sizes/font_size = 50
+text = "Recomeçar"
+
+[node name="HomeButton" type="Button" parent="GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ggtxo")
+theme_override_font_sizes/font_size = 50
+text = "Voltar"
+
+[node name="Sprite2D" type="Sprite2D" parent="GameOver"]
+position = Vector2(271, 326)
+scale = Vector2(0.590909, 0.656425)
+texture = ExtResource("11_6eb37")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_d18dw")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 45.0
+autostart = true
+
+[node name="Obs3" parent="." instance=ExtResource("13_ulkcw")]
+position = Vector2(133, 299)
+scale = Vector2(4.2589, 3.85206)
+
+[node name="Obs4" parent="." instance=ExtResource("14_otkj3")]
+position = Vector2(473, 542)
+scale = Vector2(4.13682, 4.96936)
+
+[node name="Obs5" parent="." instance=ExtResource("15_4did0")]
+position = Vector2(323, 740)
+scale = Vector2(2.6, 2.56)
+
+[connection signal="button_down" from="UI/UpButton" to="Player" method="_on_up_button_button_down"]
+[connection signal="button_up" from="UI/UpButton" to="Player" method="_on_up_button_button_up"]
+[connection signal="button_down" from="UI/DownButton" to="Player" method="_on_down_button_button_down"]
+[connection signal="button_up" from="UI/DownButton" to="Player" method="_on_down_button_button_up"]
+[connection signal="button_down" from="UI/RightButton" to="Player" method="_on_right_button_button_down"]
+[connection signal="button_up" from="UI/RightButton" to="Player" method="_on_right_button_button_up"]
+[connection signal="button_down" from="UI/LeftButton" to="Player" method="_on_left_button_button_down"]
+[connection signal="button_up" from="UI/LeftButton" to="Player" method="_on_left_button_button_up"]
+[connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
+[connection signal="pressed" from="GameOver/VBoxContainer/PlayAgainButton" to="GameOver" method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="GameOver/VBoxContainer/HomeButton" to="GameOver" method="_on_home_button_pressed"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm4xovkfp8ya7"]
+
+[ext_resource type="Texture2D" uid="uid://c4imwghmwc1em" path="res://Mudanças 2/ice.png" id="1_lmy2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4g70"]
+size = Vector2(14, 16)
+
+[node name="Obs3" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0400001, 0.0399997)
+texture = ExtResource("1_lmy2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h4g70")

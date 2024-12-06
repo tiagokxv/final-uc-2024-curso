@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqwmtbnc37km3"]
+
+[ext_resource type="Texture2D" uid="uid://cvub7ebcheokk" path="res://Mudanças 2/Fire-Flame-PNG-Image-Background.png" id="1_gv2pm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xr06"]
+size = Vector2(45, 14)
+
+[node name="Obs5" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_3xr06")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(0.0399998, 0.0434783)
+texture = ExtResource("1_gv2pm")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvngqxl7uk0jv"]
+
+[ext_resource type="Texture2D" uid="uid://syhhpkuybqjc" path="res://Mudanças 2/stalagmite.png" id="1_scllt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3oem3"]
+
+[node name="Obs4" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3oem3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0719834, 0.0533115)
+texture = ExtResource("1_scllt")

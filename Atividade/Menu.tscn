@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://brbaurvkxuqt5"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_waa47"]
+[ext_resource type="FontFile" uid="uid://1btw86deu6mj" path="res://Mudanças 2/OpenType (.otf)/Unutterable-Regular.otf" id="2_a4x54"]
+[ext_resource type="Texture2D" uid="uid://b4pvl1dblkm1y" path="res://Mudanças/Nova espadinha.png" id="3_lvxum"]
+[ext_resource type="Texture2D" uid="uid://bn8e50hud0ilm" path="res://Mudanças 2/Hurt (32 x 32).png" id="4_ofltf"]
+[ext_resource type="Texture2D" uid="uid://dc3fuypd12mmn" path="res://Mudanças 2/Pizza.png" id="5_gbyy6"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_waa47")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_top = 20.0
+offset_right = 304.0
+offset_bottom = 166.0
+grow_horizontal = 2
+scale = Vector2(0.92, 1)
+theme_override_fonts/font = ExtResource("2_a4x54")
+theme_override_font_sizes/font_size = 65
+text = "espada mestra"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -100.0
+offset_right = 111.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_a4x54")
+theme_override_font_sizes/font_size = 60
+text = "Jogar"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(146, 240)
+scale = Vector2(1.75781, 1.5)
+texture = ExtResource("3_lvxum")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(385, 155)
+scale = Vector2(11.2813, 12.3672)
+texture = ExtResource("4_ofltf")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(270, 679)
+scale = Vector2(0.58125, 0.57875)
+texture = ExtResource("5_gbyy6")
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
